@@ -32,5 +32,8 @@ RUN apt-get install -y curl grep sed dpkg && \
 ENV GRADLE_HOME=/opt/gradle/gradle-6.0.1
 ENV PATH=$PATH:$GRADLE_HOME/bin JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
+RUN pip install --upgrade pip && \
+    pip install twine wheel
+
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
 CMD [ "/bin/bash" ]
